@@ -1,0 +1,17 @@
+C:\Users\thoma\Documents\MEGAsync\Gen1_2_botting\obj\Debug\netcoreapp3.1\pokemon.csproj.AssemblyReference.cache
+C:\Users\thoma\Documents\MEGAsync\Gen1_2_botting\obj\Debug\netcoreapp3.1\pokemon.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\thoma\Documents\MEGAsync\Gen1_2_botting\obj\Debug\netcoreapp3.1\pokemon.AssemblyInfoInputs.cache
+C:\Users\thoma\Documents\MEGAsync\Gen1_2_botting\obj\Debug\netcoreapp3.1\pokemon.AssemblyInfo.cs
+C:\Users\thoma\Documents\MEGAsync\Gen1_2_botting\obj\Debug\netcoreapp3.1\pokemon.csproj.CoreCompileInputs.cache
+C:\Users\thoma\Documents\MEGAsync\Gen1_2_botting\bin\Debug\netcoreapp3.1\pokemon.exe
+C:\Users\thoma\Documents\MEGAsync\Gen1_2_botting\bin\Debug\netcoreapp3.1\pokemon.deps.json
+C:\Users\thoma\Documents\MEGAsync\Gen1_2_botting\bin\Debug\netcoreapp3.1\pokemon.runtimeconfig.json
+C:\Users\thoma\Documents\MEGAsync\Gen1_2_botting\bin\Debug\netcoreapp3.1\pokemon.runtimeconfig.dev.json
+C:\Users\thoma\Documents\MEGAsync\Gen1_2_botting\bin\Debug\netcoreapp3.1\pokemon.dll
+C:\Users\thoma\Documents\MEGAsync\Gen1_2_botting\bin\Debug\netcoreapp3.1\pokemon.pdb
+C:\Users\thoma\Documents\MEGAsync\Gen1_2_botting\bin\Debug\netcoreapp3.1\OpenGL.Net.dll
+C:\Users\thoma\Documents\MEGAsync\Gen1_2_botting\bin\Debug\netcoreapp3.1\SDL2-CS.dll
+C:\Users\thoma\Documents\MEGAsync\Gen1_2_botting\obj\Debug\netcoreapp3.1\pokemon.csproj.CopyComplete
+C:\Users\thoma\Documents\MEGAsync\Gen1_2_botting\obj\Debug\netcoreapp3.1\pokemon.dll
+C:\Users\thoma\Documents\MEGAsync\Gen1_2_botting\obj\Debug\netcoreapp3.1\pokemon.pdb
+C:\Users\thoma\Documents\MEGAsync\Gen1_2_botting\obj\Debug\netcoreapp3.1\pokemon.genruntimeconfig.cache

@@ -1,0 +1,57 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "pokemon/1.0.0": {
+        "dependencies": {
+          "OpenGL.Net": "1.0.304",
+          "SDL2-CS.NetCore": "2.0.8"
+        },
+        "runtime": {
+          "pokemon.dll": {}
+        }
+      },
+      "OpenGL.Net/1.0.304": {
+        "runtime": {
+          "lib/net461/OpenGL.Net.dll": {
+            "assemblyVersion": "1.0.304.0",
+            "fileVersion": "1.0.304.0"
+          }
+        }
+      },
+      "SDL2-CS.NetCore/2.0.8": {
+        "runtime": {
+          "lib/netstandard2.0/SDL2-CS.dll": {
+            "assemblyVersion": "2.0.8.0",
+            "fileVersion": "2.0.8.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "pokemon/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "OpenGL.Net/1.0.304": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-uYjefeUxL82Ci20ny3/CcijM7itexFrMk7+C/XC2gXEvdclfXRDqcgfzARkL9bbuYAVAdD4jVOYQKjPRTN6UfQ==",
+      "path": "opengl.net/1.0.304",
+      "hashPath": "opengl.net.1.0.304.nupkg.sha512"
+    },
+    "SDL2-CS.NetCore/2.0.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Nn1duzenQyZcFLkiA+hrFkOIB4+c1BbZzNyN2HqPg3+/wyaF2Yxeb8A5pbTmXoifTa3yjcURB+8CRE1GS8BpjA==",
+      "path": "sdl2-cs.netcore/2.0.8",
+      "hashPath": "sdl2-cs.netcore.2.0.8.nupkg.sha512"
+    }
+  }
+}
