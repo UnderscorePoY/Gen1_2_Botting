@@ -1,3 +1,5 @@
+All the code (except for minor changes) comes from this project : https://github.com/stringflow/pokemon
+
 # Pokemon
 
 A work-in-progress libgambatte wrapper designed for the generation 1 and 2 games of the Pokemon series.  
