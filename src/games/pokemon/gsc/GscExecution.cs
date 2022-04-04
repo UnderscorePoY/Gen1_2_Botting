@@ -37,7 +37,11 @@ public partial class Gsc {
                 case Action.Up:
                 case Action.Down:
                     Joypad input = (Joypad) action;
-                    RunUntil("OWPlayerInput");
+                    // TODO : old
+                    // RunUntil("OWPlayerInput");
+                    InjectOverworld(input);
+                    Hold(input, "OWPlayerInput");
+
                     InjectOverworld(input);
                     //ret = Hold(input, "CountStep", "RandomEncounter.ok", "PrintLetterDelay.checkjoypad", "DoPlayerMovement.BumpSound"); // changes
                     ret = Hold(input, "CountStep", "RandomEncounter.ok", "PrintLetterDelay.checkjoypad", "DoPlayerMovement.BumpSound", 

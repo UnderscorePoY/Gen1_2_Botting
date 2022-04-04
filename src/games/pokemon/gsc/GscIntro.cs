@@ -12,7 +12,7 @@ public enum GscStrat {
 public static class GscStratFunctions {
 
     public static void Execute(this GscStrat strat, Gsc gb) {
-        switch(strat) {
+        switch(strat) {            
             case GscStrat.GfSkip:
                 gb.Hold(Joypad.Start, "GetJoypad");
                 gb.Press(Joypad.Start);

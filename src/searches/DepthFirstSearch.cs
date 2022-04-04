@@ -159,6 +159,7 @@ public static class DepthFirstSearch {
 
                     gb.LoadState(prev.State);
                     int ret = gb.Execute(edge.Action);
+                    
                     /*
                     if(recursionCount % 2500 == 0){
                         gb.Screenshot().Save("screenshot.png");

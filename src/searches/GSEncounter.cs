@@ -167,29 +167,30 @@ public static class Encounter {
         String[] resultsArr = new String[60];
 
         Gold igtGb;
-        for(byte _igt = 0; _igt < 60 ; _igt++){
+        for(byte _igt = 0; _igt < 60 ; _igt++){ // TODO : 60
             s.igt = _igt;
 
             MakeSave(s);
             igtGb = new Gold("roms/"+ s.outputSavefileStr + "_temp.sav");
 
-            if(_igt == 0) igtGb.Record("nomnom");
+            //if(_igt == 0) igtGb.Record("nomnom");
 
             ManipOutcome outcome = ExecuteIGTCore(igtGb, s, rtc, mmBack, fsBack,delay, logPath, recordIgt: recordIgt, displayIgt: displayIgt);
 
             // Text output
+            resultsArr[_igt] = igtGb.CpuRead(RAM.SuicuneMapGroup)+","+igtGb.CpuRead(RAM.SuicuneMapNumber)+" ";
             switch(outcome){
             case ManipOutcome.Encounter:
-                resultsArr[_igt] = "[f" + _igt + "] " + igtGb.EnemyMon.Species.Name + " L" + igtGb.EnemyMon.Level + " DVs: " + igtGb.EnemyMon.DVs.ToString() + " Map,Tile: " + Maps.GetName(igtGb.Map.Id) + "," + igtGb.Tile.X + "/" + igtGb.Tile.Y;
+                resultsArr[_igt] += "[f" + _igt + "] " + igtGb.EnemyMon.Species.Name + " L" + igtGb.EnemyMon.Level + " DVs: " + igtGb.EnemyMon.DVs.ToString() + " Map,Tile: " + Maps.GetName(igtGb.Map.Id) + "," + igtGb.Tile.X + "/" + igtGb.Tile.Y;
                 break;
             case ManipOutcome.Bonk:
-                resultsArr[_igt] = "[f" + _igt + "] Bonk";
+                resultsArr[_igt] += "[f" + _igt + "] Bonk";
                 break;
             case ManipOutcome.Textbox:
-                resultsArr[_igt] = "[f" + _igt + "] Spinner hit / trainer";
+                resultsArr[_igt] += "[f" + _igt + "] Spinner hit / trainer";
                 break;
             case ManipOutcome.Nothing:
-                resultsArr[_igt] = "[f" + _igt + "] No encounter";
+                resultsArr[_igt] += "[f" + _igt + "] No encounter";
                 break;
             default:
                 break;
@@ -657,7 +658,7 @@ public static class Encounter {
         int x, y, es, c;
         es = 0; c = 0;
         y = 29; 
-        for(x = 14; x <= 16; x++){
+        for(x = 13; x <= 16; x++){
             AddEdges(ecr, x, y, es, c, Action.Right);
         }
         x = 17; AddEdges(ecr, x, y, es, 17, Action.Right);
@@ -721,13 +722,14 @@ public static class Encounter {
         Raticate_InitR38(map);
         */
 
+        
         Suicune_InitEcruteak(map, r37);
         Suicune_InitR37(r37);
-
+        
 
 
         /*
-        Pathfinding.DebugDrawEdges<GscMap, GscTile>(dummyGb, r37, 1);
+        Pathfinding.DebugDrawEdges<GscMap, GscTile>(dummyGb, map, 0);
         Environment.Exit(0);
         */
 
@@ -736,7 +738,7 @@ public static class Encounter {
 
         // Search parameters
         const int MaxCost = 350;
-        int minSuccesses = 51;
+        int minSuccesses = 50;
 
         // Save data
         // String savefileStr = "gold_geodude_0xfd_DRR_buffered";
@@ -750,13 +752,14 @@ public static class Encounter {
 
         //    "gold_Raticate_Route38_bike_psc3"
 
-            "gold_suicune_ecruteak_R37_Raikouspot_bike_r"
+        //    "gold_suicune_ecruteak_R37_Raikouspot_bike_r"
+            "gold_suicune_Ecruteak_R37_L_Raikouspot_bike_r"
         };
 
         byte startDay = Days.Friday;
         byte[] startHours = { 9 }; // 8, 2, 18 
         byte[] startMinutes = { 0 }; // 51
-        byte[] audios = { Audios.Stereo, Audios.Mono }; // 0xc1 : mono
+        byte[] audios = { Audios.Stereo };
         int rtc = 1*3600 + 40*60 + 0; // hour - minute - second
 
         byte frameType = 0;
@@ -853,8 +856,10 @@ public static class Encounter {
             partyCount = partyCount,
         };
 
-        CheckDelays(igtSaveData, rtc, 1, 0, 121, 121, "RRRRDDDDDDDDDRLL", 0);
-        Environment.Exit(0);
+        //CheckDelays(igtSaveData, rtc, 0, 0, 7, 7, "LLLLLLRRUUDDR", 0); // Raticate
+        //CheckDelays(igtSaveData, rtc, 1, 0, 121, 121, "RRRRDDDDDDDDDRLL", 0); // Suicune
+        //CheckDelays(igtSaveData, rtc, 0, 0, 3, 3, "RRRRRDDDDDDDDDDDDUUUUUDS_BD ", 0); // Suicune
+        //Environment.Exit(0);
         
         
         for(int idx = 0; idx < savefileArr.Length; idx++) {
@@ -911,8 +916,9 @@ public static class Encounter {
                                         
                                         GscStrat.GfSkip.Execute(gb);
                                         GscStrat.TitleSkip.Execute(gb);
+
                                         byte[] mmbackState = gb.SaveState();
-                                        for(int mmBack = 0; mmBack <= 3; mmBack++) {
+                                        for(int mmBack = 0; mmBack <= 0; mmBack++) { // 3 : they are broken afaik
                                             Console.WriteLine("mmBack: "+mmBack);
                                             GscStrat.Continue.Execute(gb);
                                             byte[] fsbackState = gb.SaveState();
@@ -925,7 +931,8 @@ public static class Encounter {
                                                 for(int delay = 0; delay <= MaxCost; delay++) {
 
                                                     Console.WriteLine("(" + DateTime.Now.ToString("HH:mm:ss") + ")" + " delay: "+delay);
-                                                    int introCost = mmBack * 83 + fsBack * 101 + delay;
+                                                    // int introCost = mmBack * 83 + fsBack * 101 + delay; // old
+                                                    int introCost = mmBack * 71 + fsBack * 101 + delay;
                                                     if(introCost > MaxCost) break;
                                                     gb.Hold(Joypad.A, "OWPlayerInput");
 
